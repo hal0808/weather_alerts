@@ -6,7 +6,7 @@ public class Weather {
 	private int id;			//天気ID(テスト)
 	private Date update;	//更新日時
 	private int code;		//都市コード
-	private Date datetime;	//取得日時
+	private Date dt;	//取得日時(datetime)
 	private double temp_min;	//最低気温
 	private double temp_max;	//最高気温
 	private String icon;		//画像名
@@ -15,12 +15,12 @@ public class Weather {
 
 
 
-	public Weather(int id, Date update, int code, Date datetime, double temp_min, double temp_max, String icon,
+	public Weather(int id, Date update, int code, Date dt, double temp_min, double temp_max, String icon,
 			String weather) {
 		this.id = id;
 		this.update = update;
 		this.code = code;
-		this.datetime = datetime;
+		this.dt = dt;
 		this.temp_min = temp_min;
 		this.temp_max = temp_max;
 		this.icon = icon;
@@ -48,11 +48,11 @@ public class Weather {
 		this.code = code;
 	}
 
-	public Date getDatetime() {
-		return datetime;
+	public Date getdt() {
+		return dt;
 	}
-	public void setDatetime(Date datetime) {
-		this.datetime = datetime;
+	public void setdt(Date dt) {
+		this.dt = dt;
 	}
 
 	public double getTemp_min() {

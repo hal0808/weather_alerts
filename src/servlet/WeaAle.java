@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,8 +27,26 @@ public class WeaAle extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+
+		//リクエストパラメータから取得
+		request.setCharacterEncoding("UTF-8");
+		String dt = request.getParameter("dt");
+		double lat = Integer.parseInt(request.getParameter("lat"));
+		double lon = Integer.parseInt(request.getParameter("lon"));
+
+		dt = "2018-06-11 03:00:00";
+		lat = 34.351063;
+		lon = 134.047004;
+
+
+	}
+
+	private static int find_city(double lat,double lon){
+		int code = 0;
+
+
+
+		return code;
 	}
 
 }
