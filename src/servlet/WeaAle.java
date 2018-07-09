@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import create_record.Create_record;
+import method.Create_record;
 
 /**
  * Servlet implementation class WeaAle
@@ -47,6 +47,10 @@ public class WeaAle extends HttpServlet {
 
 		Create_record create_record = new Create_record();
 		boolean cr = create_record.execute(request);
+
+		Create_record find_city = new Create_record();
+		boolean fc = find_city.execute(request);
+
 
 
 		find_city(lat, lon, request);
