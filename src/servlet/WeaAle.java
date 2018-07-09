@@ -44,6 +44,9 @@ public class WeaAle extends HttpServlet {
 		lon = 134.047004;
 
 
+		find_city(lat, lon, request);
+
+
 	}
 
 	private static int find_city(double lat,double lon,HttpServletRequest request){
@@ -57,7 +60,7 @@ public class WeaAle extends HttpServlet {
 		String sql="";
 
 		try {
-					sql = "SELECT c.id,c.title,c.volume,c.author,c.plice,p.name,g.name,c.stock FROM comic_mst c,genre_mst g,publisher_mst p WHERE genre_id = g.id AND publisher_id = p.id AND title LIKE ? AND c.del_flag=0 ORDER BY c.id ASC";
+			sql = "SELECT c.id,c.title,c.volume,c.author,c.plice,p.name,g.name,c.stock FROM comic_mst c,genre_mst g,publisher_mst p WHERE genre_id = g.id AND publisher_id = p.id AND title LIKE ? AND c.del_flag=0 ORDER BY c.id ASC";
 
 			ResultSet rs=null;
 
