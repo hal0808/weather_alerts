@@ -1,4 +1,4 @@
-package create_record;
+package method;
 
 import javax.servlet.http.HttpServletRequest;
 

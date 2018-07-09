@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import create_record.Create_record;
+import method.Create_record;
 
 /**
  * Servlet implementation class WeaAle
