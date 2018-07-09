@@ -8,6 +8,11 @@ import java.sql.SQLException;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ *
+ * @author ishida haruna
+ *
+ */
 public class Find_city {
 	public int execute(Double lat, Double lon, HttpServletRequest request){
 		int code = 0;
