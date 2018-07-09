@@ -20,7 +20,7 @@ public class Find_city {
 		String sql="";
 
 		try {
-			sql = "SELECT c.id,c.title,c.volume,c.author,c.plice,p.name,g.name,c.stock FROM comic_mst c,genre_mst g,publisher_mst p WHERE genre_id = g.id AND publisher_id = p.id AND title LIKE ? AND c.del_flag=0 ORDER BY c.id ASC";
+			sql = "SELECT FROM comic_mst c,genre_mst g,publisher_mst p WHERE genre_id = g.id AND publisher_id = p.id AND title LIKE ? AND c.del_flag=0 ORDER BY c.id ASC";
 
 			ResultSet rs=null;
 
