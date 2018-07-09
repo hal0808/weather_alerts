@@ -1,12 +1,7 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import method.Create_record;
+import method.Find_city;
 
 /**
  * Servlet implementation class WeaAle
@@ -45,69 +41,19 @@ public class WeaAle extends HttpServlet {
 		lat = 34.351063;
 		lon = 134.047004;
 
+		//レコード作成メソッド
 		Create_record create_record = new Create_record();
 		boolean cr = create_record.execute(request);
 
-		Create_record find_city = new Create_record();
-		boolean fc = find_city.execute(request);
+		//地点検索メソッド
+		Find_city find_city = new Find_city();
+		int code = find_city.execute(lat, lon, request);
 
 
 
-		find_city(lat, lon, request);
 
 
 	}
 
-	private static int find_city(double lat,double lon,HttpServletRequest request){
-		int code = 0;
-
-		//sqlの実行
-		//アプリケーションスコープからデータベース接続情報を取得する
-		ServletContext sc = request.getServletContext();
-		Connection con = (Connection)sc.getAttribute("DB_CONNECT");
-
-		String sql="";
-
-		try {
-			sql = "SELECT c.id,c.title,c.volume,c.author,c.plice,p.name,g.name,c.stock FROM comic_mst c,genre_mst g,publisher_mst p WHERE genre_id = g.id AND publisher_id = p.id AND title LIKE ? AND c.del_flag=0 ORDER BY c.id ASC";
-
-			ResultSet rs=null;
-
-				System.out.println(sql);
-				PreparedStatement ps = con.prepareStatement(sql);
-
-				//パラメータのセット
-				//ps.setString(1, '%' + lon + '%');	//word:検索ワード
-
-				//select文を実行し結果を取得する
-				rs = ps.executeQuery();
-				System.out.println(ps.toString());
-
-
-			//next()メソッド：レコードがある間trueを返す
-			while(rs.next()){
-				//コンソールに一応出力
-				System.out.println("コミックID："+rs.getString("c.id"));
-
-
-			}
-
-			rs.close();
-
-
-		} catch (SQLException e) {
-		// TODO 自動生成された catch ブロック
-//			try {
-//				//異常時はロールバックする
-//				con.rollback();
-//			} catch (SQLException e1) {
-//				// TODO 自動生成された catch ブロック
-//				e1.printStackTrace();
-//			}
-			e.printStackTrace();
-		}
-
-		return code;
-	}
 
 }
