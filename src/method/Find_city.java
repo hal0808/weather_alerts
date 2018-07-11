@@ -25,7 +25,7 @@ public class Find_city {
 		String sql="";
 
 		try {
-			sql = "SELECT FROM comic_mst c,genre_mst g,publisher_mst p WHERE genre_id = g.id AND publisher_id = p.id AND title LIKE ? AND c.del_flag=0 ORDER BY c.id ASC";
+			sql = "SELECT code FROM city_meter WHERE ";
 
 			ResultSet rs=null;
 
