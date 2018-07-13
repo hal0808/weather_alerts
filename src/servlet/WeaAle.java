@@ -22,8 +22,7 @@ public class WeaAle extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doPost(request, response);
 	}
 
 	/**
@@ -34,8 +33,8 @@ public class WeaAle extends HttpServlet {
 		//リクエストパラメータから取得
 		request.setCharacterEncoding("UTF-8");
 		String dt = request.getParameter("dt");
-		double lat = Integer.parseInt(request.getParameter("lat"));
-		double lon = Integer.parseInt(request.getParameter("lon"));
+		double lat = Double.parseDouble(request.getParameter("lat"));
+		double lon = Double.parseDouble(request.getParameter("lon"));
 
 		dt = "2018-06-11 03:00:00";
 		lat = 34.351063;
@@ -43,7 +42,7 @@ public class WeaAle extends HttpServlet {
 
 		//レコード作成メソッド
 		Create_record create_record = new Create_record();
-		boolean cr = create_record.execute(request);
+		boolean cr = create_record.execute(request, 1852561);
 
 		//地点検索メソッド
 		Find_city find_city = new Find_city();

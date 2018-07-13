@@ -9,7 +9,7 @@ public class Create_record {
 
 	public boolean execute(HttpServletRequest request,int city_id) {
 
-
+		System.out.println("aa");
 //		try {
 //			Document doc =Jsoup.connect("http://api.openweathermap.org/data/2.5/forecast?id=1852561&appid=d3eb516e0fd441b11ce433f19fdbc480").get();
 //			System.out.println(doc);
